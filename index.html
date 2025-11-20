@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Sistema Bancário</title>
+
+<style>
+    body { 
+        font-family: Arial; 
+        padding: 20px; 
+        background: #fafafa;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
+    .box { 
+        border: 1px solid #999; 
+        padding: 15px; 
+        margin-bottom: 20px; 
+        border-radius: 8px;
+        background: white;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    input, select {
+        margin-top: 3px;
+        padding: 6px;
+        width: 210px;
+        border-radius: 5px;
+        border: 1px solid #aaa;
+    }
+
+    button { 
+        padding: 7px 15px; 
+        margin-top: 15px; 
+        border: none;
+        background: #2a6be0;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #1f54b3;
+    }
+
+    pre { 
+        background: #f2f2f2; 
+        padding: 10px; 
+        border-radius: 6px; 
+        white-space: pre-wrap;
+    }
+</style>
+
+</head>
+<body>
+
+<h2>Sistema Bancário</h2>
+
+<!-- ==================================================================== -->
+<!--  CADASTRO DE PESSOA  -->
+<!-- ==================================================================== -->
+<div class="box">
+    <h3>Cadastrar Pessoa</h3>
+
+    <label>Nome:</label>
+    <input id="pessoaNome" type="text">
+
+    <label>CPF:</label>
+    <input id="pessoaCpf" type="text">
+
+    <label>Data de Nascimento:</label>
+    <input id="pessoaDt" type="date">
+
+    <button onclick="criarPessoa()">Cadastrar Pessoa</button>
+
+    <h4 style="margin-top:20px;">Pessoas Cadastradas</h4>
+   <pre id="listarPessoas"></pre>
+
+</div>
+
+
+<!-- ==================================================================== -->
+<!--  CRIAR CONTA  -->
+<!-- ==================================================================== -->
+<div class="box">
+    <h3>Criar Conta</h3>
+
+    <label>Titular (Nome ou CPF):</label>
+    <input type="text" id="titular">
+
+    <label>Tipo de Conta:</label>
+    <select id="tipoConta">
+        <option value="corrente">Conta Corrente</option>
+        <option value="poupanca">Conta Poupanca</option>
+    </select>
+
+    <label>Saldo Inicial:</label>
+    <input type="number" id="saldoInicial">
+
+    <button onclick="criarConta()">Criar Conta</button>
+</div>
+
+
+
+
+<!-- ==================================================================== -->
+<!--  DEPOSITAR  -->
+<!-- ==================================================================== -->
+<div class="box">
+    <h3>Depositar</h3>
+
+    <label>Titular da Conta:</label>
+    <input type="text" id="depTitular">
+
+    <label>Valor:</label>
+    <input type="number" id="depValor">
+
+    <button onclick="depositar()">Depositar</button>
+
+    <pre id="saidaDeposito"></pre>
+</div>
+
+
+<!-- ==================================================================== -->
+<!--  SACAR  -->
+<!-- ==================================================================== -->
+<div class="box">
+    <h3>Sacar</h3>
+
+    <label>Titular da Conta:</label>
+    <input type="text" id="sacTitular">
+
+    <label>Valor:</label>
+    <input type="number" id="sacValor">
+
+    <button onclick="sacar()">Sacar</button>
+
+    <pre id="saidaSaque"></pre>
+</div>
+
+
+<!-- ==================================================================== -->
+<!--  TRANSFERIR  -->
+<!-- ==================================================================== -->
+<div class="box">
+    <h3>Transferir</h3>
+
+    <label>Titular da Conta Origem:</label>
+    <input type="text" id="transOrigem">
+
+    <label>Titular da Conta Destino:</label>
+    <input type="text" id="transDestino">
+
+    <label>Valor:</label>
+    <input type="number" id="transValor">
+
+    <button onclick="transferir()">Transferir</button>
+
+    <pre id="saidaTransferencia"></pre>
+</div>
+
+<!-- ==================================================================== -->
+<!--  MOSTRAR CONTAS COM VIRA-MÊS  -->
+<!-- ==================================================================== -->
+<div class="box">
+    <h3>Mostrar Contas (com Vira-Mês aplicado)</h3>
+
+    <button onclick="mostrarContas()">Atualizar Lista</button>
+
+    <pre id="saida"></pre>
+</div>
+
+<script type="module" src="index.js"></script>
+</body>
+</html>
